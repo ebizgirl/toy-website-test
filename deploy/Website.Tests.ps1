@@ -14,7 +14,7 @@ Describe 'Toy Website' {
     }
 
     It 'Does not serves pages over HTTP' {
-        $request = [System.Net.WebRequest]::Create("http:/$HostName")
+        $request = [System.Net.WebRequest]::Create("http://$HostName")
         $request.AllowAutoRedirect = $false
         $request.GetResponse().StatusCode |
             Should -BeGreaterOrEqual 300 -Because "HTTP is not secure"
