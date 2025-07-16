@@ -31,6 +31,12 @@ jobs:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+     #  Debug secrets (temporary step — remove after confirming)
+    - name: Debug Azure secret values (temporary)
+      run: |
+        echo "AZURE_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }}"
+        echo "AZURE_TENANT_ID=${{ secrets.AZURE_TENANT_ID }}"
+        echo "AZURE_SUBSCRIPTION_ID=${{ secrets.AZURE_SUBSCRIPTION_ID }}"
     - uses: azure/arm-deploy@v1
       name: Run preflight validation
       with:
